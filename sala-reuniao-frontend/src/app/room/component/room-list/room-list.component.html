@@ -1,0 +1,43 @@
+<h2>Room List</h2>
+
+<div class="form-group row">
+  <label class="col-sm-2 col-from-label">Filter By:</label>
+
+  <div class="col-sm-10">
+    <input [(ngModel)]="filter" class="form-control" />
+  </div>
+</div>
+
+<a [routerLink]="['/room/create']" class="btn btn-primary mr-2"
+>Create</a
+>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Room</th>
+      <th>Date</th>
+      <th>Start Hour</th>
+      <th>End Hour</th>
+      <th>Active</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of filteredRooms">
+      <td>{{ room.name }}</td>
+      <td>{{ room.date }}</td>
+      <td>{{ room.startHour }}</td>
+      <td>{{ room.endHour }}</td>
+      <td>{{ room.active }}</td>
+      <td>
+        <a [routerLink]="['/room/info', room.id]" class="btn btn-primary mr-2"
+          >Detail</a
+        >
+        <button (click)="deleteById(room.id)" class="btn btn-danger">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
