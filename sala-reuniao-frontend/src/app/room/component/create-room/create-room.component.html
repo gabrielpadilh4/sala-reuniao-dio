@@ -1,1 +1,67 @@
 <h2>Create room</h2>
+
+<hr />
+
+<form #roomForm="ngForm">
+  <div class="form-group row">
+    <label class="col-sm-2">Name:</label>
+    <div class="col-sm-10">
+      <input
+        [(ngModel)]="room.name"
+        required
+        name="name"
+        #roomName="ngModel"
+        [ngClass]="{ 'is-invalid': roomName.invalid }"
+      />
+      <div class="invalid-feedback">
+        <span>Room name is required</span>
+      </div>
+    </div>
+
+    <label class="col-sm-2">Date:</label>
+    <div class="col-sm-10">
+      <input
+        [(ngModel)]="room.date"
+        required
+        name="date"
+        #roomDate="ngModel"
+        [ngClass]="{ 'is-invalid': roomDate.invalid }"
+      />
+      <div class="invalid-feedback">
+        <span>Room date is required</span>
+      </div>
+    </div>
+
+    <label class="col-sm-2">Start Hour:</label>
+    <div class="col-sm-10">
+      <input
+        [(ngModel)]="room.startHour"
+        required
+        name="startHour"
+        #roomStartHour="ngModel"
+        [ngClass]="{ 'is-invalid': roomStartHour.invalid }"
+      />
+      <div class="invalid-feedback">
+        <span>Room start hour is required</span>
+      </div>
+    </div>
+
+    <label class="col-sm-2">End Hour:</label>
+    <div class="col-sm-10">
+      <input
+        [(ngModel)]="room.endHour"
+        required
+        name="endHour"
+        #roomEndHour="ngModel"
+        [ngClass]="{ 'is-invalid': roomEndHour.invalid }"
+      />
+      <div class="invalid-feedback">
+        <span>Room end hour is required</span>
+      </div>
+    </div>
+
+    <button [disabled]="roomForm.invalid" (click)="save()" class="btn btn-primary mr-2">Save</button>
+    <button [routerLink]="['/room']" class="btn btn-secondary">Back</button>
+
+  </div>
+</form>

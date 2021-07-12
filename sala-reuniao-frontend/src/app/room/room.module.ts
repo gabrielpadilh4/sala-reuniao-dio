@@ -5,16 +5,9 @@ import { RouterModule } from '@angular/router';
 import { CreateRoomComponent } from './component/create-room/create-room.component';
 import { RoomDetailsComponent } from './component/room-details/room-details.component';
 import { RoomListComponent } from './component/room-list/room-list.component';
-import { UpdateRoomComponent } from './component/update-room/update-room.component';
-import { RoomService } from './service/room.service';
 
 @NgModule({
-  declarations: [
-    CreateRoomComponent,
-    RoomDetailsComponent,
-    RoomListComponent,
-    UpdateRoomComponent,
-  ],
+  declarations: [CreateRoomComponent, RoomDetailsComponent, RoomListComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -28,8 +21,12 @@ import { RoomService } from './service/room.service';
         component: RoomDetailsComponent,
       },
       {
-          path: 'room/create',
-          component: CreateRoomComponent
+        path: 'room/create',
+        component: CreateRoomComponent,
+      },
+      {
+        path: 'room/update/:id',
+        component: CreateRoomComponent,
       },
     ]),
   ],
